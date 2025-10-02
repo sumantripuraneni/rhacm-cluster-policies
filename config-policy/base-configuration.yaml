@@ -14,7 +14,7 @@ policyDefaults:
 policies:                    
   - name: base configurations
     manifests:               
-      - path: manifests/configurations
+      - path: manifests/configurations/base
     controls:
       - "manifests/configurations" 
     standards:
@@ -22,7 +22,7 @@ policies:
 
   - name: base operators
     manifests:               
-      - path: manifests/operators
+      - path: manifests/operators/base
     controls:
       - "manifests/operators"
     standards:
