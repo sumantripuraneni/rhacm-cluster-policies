@@ -1,0 +1,29 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: PolicyGenerator
+metadata:
+  name: pg-base-policies
+policyDefaults:                                     
+  namespace: config-policies
+  remediationAction: enforce
+  categories:
+    - "Base configuration"
+    - "Cluster selector base-config=true"
+  placement:                 
+    clusterSelectors:        
+      base-config: "true"  
+policies:                    
+  - name: base configurations
+    manifests:               
+      - path: manifests/configurations
+    controls:
+      - "manifests/configurations" 
+    standards:
+      - "Base configuration"
+
+  - name: base operators
+    manifests:               
+      - path: manifests/operators
+    controls:
+      - "manifests/operators"
+    standards:
+      - "Base operators"

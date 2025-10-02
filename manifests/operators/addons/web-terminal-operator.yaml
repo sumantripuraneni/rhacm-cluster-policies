@@ -1,0 +1,18 @@
+apiVersion: policy.open-cluster-management.io/v1beta1
+kind: OperatorPolicy
+metadata:
+  name: web-terminal-operator
+  namespace: policies
+spec:
+  remediationAction: enforce
+  severity: critical
+  complianceType: musthave
+
+  subscription:
+    name: web-terminal
+    channel: fast
+    source: cs-redhat-opertaor-indx-v418-2025081
+    sourceNamespace: openshift-marketplace
+    startingCSV: web-terminal.v1.8.0 
+
+  upgradeApproval: Automatic

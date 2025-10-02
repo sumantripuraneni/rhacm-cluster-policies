@@ -1,0 +1,29 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: PolicyGenerator
+metadata:
+  name: pg-addon-policies
+policyDefaults:                                     
+  namespace: config-policies
+  remediationAction: enforce
+  categories:
+    - "Addon configurations"
+    - "Cluster selector addon-configs=true"
+  placement:                 
+    clusterSelectors:        
+      addon-configs: "true"  
+policies:                    
+  - name: addon configurations
+    manifests:               
+      - path: manifests/addons
+    controls:
+      - "manifests/addons" 
+    standards:
+      - "Addon configurations"
+
+  - name: Addon operators
+    manifests:               
+      - path: manifests/addons
+    controls:
+      - "manifests/addons"
+    standards:
+      - "Addon operators"
