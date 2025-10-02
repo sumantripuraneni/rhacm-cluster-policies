@@ -1,0 +1,15 @@
+apiVersion: policy.open-cluster-management.io/v1beta1
+kind: OperatorPolicy
+metadata:
+  name: openshift-nmstate-operator
+spec:
+  remediationAction: enforce 
+  severity: critical 
+  complianceType: musthave
+  subcription:
+    name: kubernetes-nmstate-operator
+    channel: stable 
+    source: cs-redhat-opertaor-indx-v418-2025081
+    sourceNamespace: openshift-marketplace
+    startingCSV: kubernetes-nmstate-operator.4.18.0.202507221934
+  upgradeApproval: None

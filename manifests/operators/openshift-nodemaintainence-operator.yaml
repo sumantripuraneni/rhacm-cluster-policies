@@ -1,0 +1,16 @@
+apiVersion: policy.open-cluster-management.io/v1beta1
+kind: OperatorPolicy
+metadata:
+  name: node-maintenance-operator
+spec:
+  remediationAction: enforce 
+  severity: critical 
+  complianceType: musthave
+  subcription:
+    name:  openshift-marketplace
+    channel: stable 
+    source: cs-redhat-opertaor-index-v418-2025081
+    sourceNamespace: openshift-marketplace
+    startingCSV: node-maintenance-operator.v5.4.1
+  upgradeApproval: None
+

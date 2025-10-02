@@ -1,0 +1,15 @@
+apiVersion: policy.open-cluster-management.io/v1beta1
+kind: OperatorPolicy
+metadata:
+  name: openshift-pipelines
+spec:
+  remediationAction: enforce 
+  severity: critical 
+  complianceType: musthave
+  subcription:
+    name: openshift-pipelines-operator-rh
+    channel: latest
+    source: cs-redhat-opertaor-indx-v418-2025081
+    sourceNamespace: openshift-marketplace
+    startingCSV: openshift-pipelines-operator-rh.v1.19.2
+  upgradeApproval: None
