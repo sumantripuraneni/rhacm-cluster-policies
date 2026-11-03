@@ -22,3 +22,5 @@ spec:
   operatorGroup:
     name: openshift-compliance-operator
     namespace: openshift-compliance
+    targetNamespaces:
+      - openshift-compliance
