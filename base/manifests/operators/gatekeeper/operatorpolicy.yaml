@@ -17,7 +17,7 @@ spec:
     channel: stable
     name: gatekeeper-operator-product
     namespace: gatekeeper-operator
-    source: cs-redhat-operator-index-v418-2025102
+    source: redhat-operators
     sourceNamespace: openshift-marketplace
   operatorGroup:
     name: gatekeeper-operator

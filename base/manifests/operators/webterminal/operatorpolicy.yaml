@@ -17,7 +17,7 @@ spec:
     channel: fast
     name: web-terminal
     namespace: web-terminal-operator
-    source: cs-redhat-operator-index-v418-2025102
+    source: redhat-operators
     sourceNamespace: openshift-marketplace
   operatorGroup:
     name: web-terminal-operator

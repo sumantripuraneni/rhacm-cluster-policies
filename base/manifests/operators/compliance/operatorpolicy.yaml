@@ -17,7 +17,7 @@ spec:
     channel: stable
     name: compliance-operator
     namespace: openshift-compliance
-    source: cs-redhat-operator-index-v4-18-202511
+    source: redhat-operators
     sourceNamespace: openshift-marketplace
   operatorGroup:
     name: openshift-compliance-operator
