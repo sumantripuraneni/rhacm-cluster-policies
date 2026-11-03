@@ -5,4 +5,4 @@ kind: Kustomization
 namespace: gatekeeper-operator
 
 resources:
-- operatorpolicy.yml
+- operatorpolicy.yaml

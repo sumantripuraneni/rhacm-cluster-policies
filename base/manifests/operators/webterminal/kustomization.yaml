@@ -5,4 +5,4 @@ kind: Kustomization
 namespace: web-terminal-operator
 
 resources:
-- operatorpolicy.yml
+- operatorpolicy.yaml

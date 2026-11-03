@@ -14,7 +14,7 @@ policyDefaults:
     - "Base configuration"
     - "Cluster selector base-config=true"
   placement:
-    clusterSelectors:
+    labelSelector:
       base-config: "true"
 
 policies:
@@ -33,15 +33,14 @@ policies:
       - path: manifests/operators/openshift-virtualization
       - path: manifests/configuration/openshift-virtualization
 
- - name: console-banner
-   manifests:
-      - path: manifests/configuration/console_banner
-
+  - name: console-banner
+    manifests:
+        - path: manifests/configuration/console_banner
  
- - name: webterminal
-   manifests:
-      - path: manifests/operators/webterminal
+  - name: webterminal
+    manifests:
+        - path: manifests/operators/webterminal
 
- - name: gatekeeper
-   manifests:
-      - path: manifests/operators/gatekeeper
+  - name: gatekeeper
+    manifests:
+        - path: manifests/operators/gatekeeper
