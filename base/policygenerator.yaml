@@ -1,0 +1,47 @@
+apiVersion: policy.open-cluster-management.io/v1
+kind: PolicyGenerator
+metadata:
+  name: base-policies-pg
+  
+policyDefaults:
+  namespace: acm-policies-openshift-gitops
+  orderManifests: true
+  orderPolicies: false
+  remediationAction: enforce
+  complianceType: musthave
+  consolidateManifests: false
+  categories:
+    - "Base configuration"
+    - "Cluster selector base-config=true"
+  placement:
+    clusterSelectors:
+      base-config: "true"
+
+policies:
+
+  - name: etcd
+    manifests:
+      - path: manifests/configuration/etcd
+
+  - name: compliance
+    manifests:
+      - path: manifests/operators/compliance
+      - path: manifests/configuration/compliance
+
+  - name: openshift-virtualization
+    manifests:
+      - path: manifests/operators/openshift-virtualization
+      - path: manifests/configuration/openshift-virtualization
+
+ - name: console-banner
+   manifests:
+      - path: manifests/configuration/console_banner
+
+ 
+ - name: webterminal
+   manifests:
+      - path: manifests/operators/webterminal
+
+ - name: gatekeeper
+   manifests:
+      - path: manifests/operators/gatekeeper

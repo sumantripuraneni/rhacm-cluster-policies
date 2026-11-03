@@ -1,0 +1,31 @@
+apiVersion: compliance.openshift.io/v1alpha1
+kind: ScanSettingBinding
+metadata:
+  name: security-baseline-ocp
+  namespace: openshift-compliance
+profiles:
+  - apiGroup: compliance.openshift.io/v1alpha1
+    kind: TailoredProfile
+    name: baseline-custom-rules-tailoredprofile
+  - apiGroup: compliance.openshift.io/v1alpha1
+    kind: TailoredProfile
+    name: baseline-tp-ocp4-cis
+  - apiGroup: compliance.openshift.io/v1alpha1
+    kind: TailoredProfile
+    name: baseline-tp-ocp4-pci-dss-4-0
+  - apiGroup: compliance.openshift.io/v1alpha1
+    kind: TailoredProfile
+    name: baseline-tp-ocp4-moderate
+  - apiGroup: compliance.openshift.io/v1alpha1
+    kind: TailoredProfile
+    name: baseline-tp-ocp4-moderate-node
+  - apiGroup: compliance.openshift.io/v1alpha1
+    kind: TailoredProfile
+    name: baseline-tp-ocp4-cis-node
+  - apiGroup: compliance.openshift.io/v1alpha1
+    kind: TailoredProfile
+    name: baseline-tp-ocp4-pci-dss-node-4-0
+settingsRef:
+  apiGroup: compliance.openshift.io/v1alpha1
+  kind: ScanSetting
+  name: default-auto-apply-worker

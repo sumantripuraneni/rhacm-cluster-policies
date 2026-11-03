@@ -1,0 +1,24 @@
+---
+apiVersion: console.openshift.io/v1
+kind: ConsoleNotification
+metadata:
+  name: cluster
+spec:
+  text: '{{hub (index .ManagedClusterLabels "cluster-name") hub}}'
+  location: BannerTop
+
+  # NOTE: color blind safe colors from https://personal.sron.nl/~pault/#sec:sequential
+  color: '#000000'
+  backgroundColor: '#888888'
+---
+apiVersion: console.openshift.io/v1
+kind: ConsoleNotification
+metadata:
+  name: data-center
+spec:
+  text: '{{hub (index .ManagedClusterLabels "demo.com/datacenter") hub}}'
+  location: BannerTop
+
+  # NOTE: color blind safe colors from https://personal.sron.nl/~pault/#sec:sequential
+  color: '#000000'
+  backgroundColor: '#56B4E9'

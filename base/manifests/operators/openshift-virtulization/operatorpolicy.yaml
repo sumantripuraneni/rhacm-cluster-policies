@@ -1,0 +1,26 @@
+---
+apiVersion: policy.open-cluster-management.io/v1beta1
+kind: OperatorPolicy
+metadata:
+  name: openshift-virtualization-operator-install
+spec:
+  complianceType: musthave
+  remediationAction: enforce
+  removalBehavior:
+    clusterServiceVersions: Delete
+    customResourceDefinitions: Delete
+    operatorGroups: DeleteIfUnused
+    subscriptions: Delete
+  severity: critical
+  upgradeApproval: Automatic
+  subscription:
+    channel: stable
+    name: kubevirt-hyperconverged
+    namespace: openshift-cnv
+    source: cs-redhat-operator-index-v418-2025102
+    sourceNamespace: openshift-marketplace
+  operatorGroup:
+    name: openshift-cnv-operator
+    namespace: openshift-cnv
+    targetNamespaces:
+      - openshift-cnv

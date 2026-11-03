@@ -1,7 +1,0 @@
-apiVersion: operator.openshift.io/v1
-kind: Encryption
-metadata:
-  name: cluster
-spec:
-  encryptionType: aescbc
-

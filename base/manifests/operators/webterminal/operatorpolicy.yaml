@@ -1,0 +1,24 @@
+---
+apiVersion: policy.open-cluster-management.io/v1beta1
+kind: OperatorPolicy
+metadata:
+  name: web-terminal-operator-install
+spec:
+  complianceType: musthave
+  remediationAction: enforce
+  removalBehavior:
+    clusterServiceVersions: Delete
+    customResourceDefinitions: Delete
+    operatorGroups: DeleteIfUnused
+    subscriptions: Delete
+  severity: critical
+  upgradeApproval: Automatic
+  subscription:
+    channel: fast
+    name: web-terminal
+    namespace: web-terminal-operator
+    source: cs-redhat-operator-index-v418-2025102
+    sourceNamespace: openshift-marketplace
+  operatorGroup:
+    name: web-terminal-operator
+    namespace: web-terminal-operator

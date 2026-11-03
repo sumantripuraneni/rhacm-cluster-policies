@@ -1,0 +1,24 @@
+---
+apiVersion: policy.open-cluster-management.io/v1beta1
+kind: OperatorPolicy
+metadata:
+  name: compliance-operator-install
+spec:
+  complianceType: musthave
+  remediationAction: enforce
+  removalBehavior:
+    clusterServiceVersions: Delete
+    customResourceDefinitions: Delete
+    operatorGroups: DeleteIfUnused
+    subscriptions: Delete
+  severity: critical
+  upgradeApproval: Automatic
+  subscription:
+    channel: stable
+    name: compliance-operator
+    namespace: openshift-compliance
+    source: cs-redhat-operator-index-v4-18-202511
+    sourceNamespace: openshift-marketplace
+  operatorGroup:
+    name: openshift-compliance-operator
+    namespace: openshift-compliance

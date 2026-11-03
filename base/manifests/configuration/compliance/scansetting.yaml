@@ -1,0 +1,26 @@
+timeout: 180m
+autoUpdateRemediations: true
+strictNodeScan: true
+autoApplyRemediations: true
+metadata:
+  name: default-auto-apply-worker
+  namespace: openshift-compliance
+kind: ScanSetting
+showNotApplicable: false
+rawResultStorage:
+  nodeSelector:
+    node-role.kubernetes.io/worker: ''
+  pvAccessModes:
+    - ReadWriteOnce
+  rotation: 3
+  size: 1Gi
+
+schedule: 0 1 * * *
+suspend: false
+roles:
+  - master
+  - worker
+apiVersion: compliance.openshift.io/v1alpha1
+maxRetryOnTimeout: 3
+scanTolerations:
+  - operator: Exists
