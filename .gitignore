@@ -1,0 +1,5 @@
+*.tgz
+*.tar
+*.tar.gz
+.DS_Store
+._*
