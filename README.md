@@ -3,7 +3,7 @@
 This repo defines Red Hat Advanced Cluster Management (ACM) policies that Argo CD deploys from an OCI artifact in Quay, so the cluster doesn't need to connect to a Git repository.
 
 ```text
-Local repo -> OCI artifact in Quay -> Argo CD repo-server pulls and unpacks it
+Repo -> OCI artifact in Quay -> Argo CD repo-server pulls and unpacks it
 -> Kustomize + PolicyGenerator render it -> Argo CD applies the policies to the hub
 -> ACM propagates them to clusters labeled base-config=true
 ```
@@ -12,17 +12,10 @@ Local repo -> OCI artifact in Quay -> Argo CD repo-server pulls and unpacks it
 
 - An OpenShift hub cluster with ACM and OpenShift GitOps installed
 - `local-cluster` registered as a managed cluster
-- Argo CD 3.1 or later, for native OCI sources
 - `redhat-operators` available in `openshift-marketplace`
-- A default StorageClass for compliance scan results
-- Nodes that support virtualization, if you keep the `openshift-virtualization` policy
 - `oc`, `oras`, and a private Quay repository
 
-Replace every `<placeholder>` below with your own value.
-
 ## 1. Enable PolicyGenerator in Argo CD
-
-Get the ACM subscription image from the hub.
 
 ```bash
 IMAGE=$(oc get deploy multicluster-operators-hub-subscription \
@@ -30,8 +23,6 @@ IMAGE=$(oc get deploy multicluster-operators-hub-subscription \
   -o jsonpath='{.spec.template.spec.containers[0].image}')
 [ -n "$IMAGE" ] && echo "OK: $IMAGE" || echo "IMAGE IS EMPTY - stop here"
 ```
-
-Create and apply the patch. A merge patch replaces whole lists, so first add any existing `spec.repo` list values to this file.
 
 ```bash
 cat > argocd-policygen-patch.yaml <<EOF
